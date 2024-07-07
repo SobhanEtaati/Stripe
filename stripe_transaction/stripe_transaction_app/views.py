@@ -9,7 +9,7 @@ def landing_page(request):
 
 
 def checkout_session(request):
-    stripe.api_key = 'sk_test_51OAdGsFWdpagdbCvzvF0RIx1kUklCPIV6AMmhGLChsMdiYH3OHMFSDFT5ZkNAeTahYpwWZmIneEyzZ3pKfkQIVil00VW3kvF5a'
+    stripe.api_key = 'YOUR_STRIPE_API_KEY'
 
     product = stripe.Product.create(
         name = 'Test Product!',
