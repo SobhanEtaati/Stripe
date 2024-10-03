@@ -33,15 +33,10 @@ def checkout_session(request):
         cancel_url=request.build_absolute_uri('/cancel/'),
     )
         
-
-    print('**************************************')  
     id = session.get('id') 
-    print(id)
-
     response_id = Transaction_response.objects.create(response_text = id)
     response_id.save()
 
-    print(f'Redirecting to: {session.url}')
     return redirect(session.url) 
 
 def success(request):
