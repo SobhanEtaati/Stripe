@@ -12,17 +12,20 @@ def checkout_session(request):
     stripe.api_key = 'YOUR_STRIPE_API_KEY'
 
     product = stripe.Product.create(
+        # set a test product to see if your gateway is working properly 
         name = 'Test Product!',
         type = 'service',
     )
 
     price = stripe.Price.create(
         product = product.id,
+        # set your desired unit amount and currency here
         unit_amount = 5000,
         currency = 'usd'
     )
 
     session = stripe.checkout.Session.create(
+        # the payment type here is by Card
         payment_method_types = ['card'],
         line_items = [{
             'price' : price.id,
